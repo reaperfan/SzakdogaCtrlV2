@@ -10,9 +10,11 @@ namespace SzakdogaCtrlV2
     {
         Stopwatch stopwatch;
         double allsecs;
+        double prevsess;
         public Form1()
         {
             InitializeComponent();
+            this.Cursor = new Cursor("hearth.ico");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,6 +44,9 @@ namespace SzakdogaCtrlV2
                 stopwatch.Stop();
                 simpleButton1.Text = "Start";
                 SaveTime(stopwatch.Elapsed);
+                prevsess = stopwatch.Elapsed.TotalSeconds;
+                TimeSpan ts2 = TimeSpan.FromSeconds(prevsess);
+
                 stopwatch.Reset();
                 double allstop = LoadAll();
                 TimeSpan ts = TimeSpan.FromSeconds(allstop);
@@ -49,8 +54,12 @@ namespace SzakdogaCtrlV2
                 // Format and display the TimeSpan value.
                 timeLbl.Text = String.Format("{3} {4} \n{0:00}:{1:00}:{2:00}",
                  ts.Hours, ts.Minutes, ts.Seconds, ts.Days, "nap");
+                
                 totalHrLbl.Text = String.Format("{0:00} {1}",
                  ts.TotalHours, "óra");
+
+                prevSess.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                 ts2.Hours, ts2.Minutes, ts2.Seconds, ts2.Milliseconds);
             }
 
         }
@@ -80,21 +89,25 @@ namespace SzakdogaCtrlV2
 
             try
             {
-                File.WriteAllText("Timespent.txt", sumsecs.ToString());
+                if (!Directory.Exists(@"c:\temp\"))
+                {
+                    Directory.CreateDirectory(@"c:\temp");
+                }
+                File.WriteAllText(@"c:\temp\Timespent.txt", sumsecs.ToString());
             }
-            catch (Exception)
+            catch (Exception e )
             {
 
-                XtraMessageBox.Show("Váratlan esemény");
+                XtraMessageBox.Show("Váratlan esemény" + e.Message);
             }
         }
         private double LoadAll()
         {
             try
             {
-                if (File.Exists("Timespent.txt"))
+                if (File.Exists(@"c:\temp\Timespent.txt"))
                 {
-                    string[] lines = File.ReadAllLines("Timespent.txt");
+                    string[] lines = File.ReadAllLines(@"c:\temp\Timespent.txt");
                     return Convert.ToDouble(lines[0]);
                 }
                 else
@@ -103,9 +116,9 @@ namespace SzakdogaCtrlV2
                     return 0;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                XtraMessageBox.Show("Váratlan hiba, az adatok betöltésekor!");
+                XtraMessageBox.Show("Váratlan hiba, az adatok betöltésekor!" + e.Message);
                 return 0;
             }
         }

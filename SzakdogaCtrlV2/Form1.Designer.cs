@@ -39,6 +39,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.totalHrLbl = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.prevSess = new DevExpress.XtraEditors.LabelControl();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -65,7 +67,7 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 208);
+            this.simpleButton1.Location = new System.Drawing.Point(12, 262);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(99, 30);
             this.simpleButton1.TabIndex = 2;
@@ -96,7 +98,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(187, 209);
+            this.simpleButton2.Location = new System.Drawing.Point(218, 262);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 29);
             this.simpleButton2.TabIndex = 6;
@@ -114,7 +116,7 @@
             this.totalHrLbl.Appearance.ForeColor = System.Drawing.Color.DarkViolet;
             this.totalHrLbl.Appearance.Options.UseFont = true;
             this.totalHrLbl.Appearance.Options.UseForeColor = true;
-            this.totalHrLbl.Location = new System.Drawing.Point(113, 154);
+            this.totalHrLbl.Location = new System.Drawing.Point(113, 157);
             this.totalHrLbl.Name = "totalHrLbl";
             this.totalHrLbl.Size = new System.Drawing.Size(80, 25);
             this.totalHrLbl.TabIndex = 8;
@@ -124,17 +126,41 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 154);
+            this.labelControl2.Location = new System.Drawing.Point(12, 157);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(76, 25);
             this.labelControl2.TabIndex = 9;
             this.labelControl2.Text = "Órában:";
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(12, 213);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(55, 25);
+            this.labelControl3.TabIndex = 11;
+            this.labelControl3.Text = "Előző:";
+            // 
+            // prevSess
+            // 
+            this.prevSess.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.prevSess.Appearance.ForeColor = System.Drawing.Color.DeepPink;
+            this.prevSess.Appearance.Options.UseFont = true;
+            this.prevSess.Appearance.Options.UseForeColor = true;
+            this.prevSess.Location = new System.Drawing.Point(113, 213);
+            this.prevSess.Name = "prevSess";
+            this.prevSess.Size = new System.Drawing.Size(80, 25);
+            this.prevSess.TabIndex = 10;
+            this.prevSess.Text = "00:00:00";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 247);
+            this.ClientSize = new System.Drawing.Size(326, 304);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.prevSess);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.totalHrLbl);
             this.Controls.Add(this.simpleButton2);
@@ -145,6 +171,8 @@
             this.Controls.Add(this.labelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximumSize = new System.Drawing.Size(336, 336);
+            this.MinimumSize = new System.Drawing.Size(336, 336);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Szakdoga";
@@ -166,6 +194,8 @@
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.LabelControl totalHrLbl;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl prevSess;
     }
 }
 
